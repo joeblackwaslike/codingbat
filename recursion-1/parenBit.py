@@ -18,16 +18,17 @@ def parenBit(string: str) -> str:
     closeParen = ")"
 
     def recurse(s, idx, newStr, opened, closed):
-        char = s[idx]
-        opening = not opened and char == openParen
-        closing = not closed and char == closeParen
+        if idx < len(s) - 1:
+            char = s[idx]
+            opening = not opened and char == openParen
+            closing = not closed and char == closeParen
 
         if opened and closed:
             return newStr
         elif any([opening, closing, opened]):
             newStr += char
 
-        recurse(s, idx + 1, newStr, opened or opening, closed or closing)
+        return recurse(s, idx + 1, newStr, opened or opening, closed or closing)
 
     return recurse(string, 0, "", False, False)
 
