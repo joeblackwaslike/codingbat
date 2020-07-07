@@ -2,7 +2,7 @@
 parenBit
 
 Given a string that contains a single pair of parenthesis, compute recursively
-a new string made of only of the parenthesis and their contents, so
+a new string made of only the parenthesis and their contents, so
 "xyz(abc)123" yields "(abc)".
 
 
@@ -17,20 +17,19 @@ def parenBit(string: str) -> str:
     openParen = "("
     closeParen = ")"
 
-    def recurse(s, idx, newStr, opened, closed):
-        if idx < len(s) - 1:
-            char = s[idx]
-            opening = not opened and char == openParen
-            closing = not closed and char == closeParen
+    def recurse(s, idx, left):
+        if idx > len(s) - 1:
+            return
 
-        if opened and closed:
-            return newStr
-        elif any([opening, closing, opened]):
-            newStr += char
+        char = s[idx]
+        if char == openParen:
+            left = idx
+        elif char == closeParen:
+            return s[left : idx + 1]
 
-        return recurse(s, idx + 1, newStr, opened or opening, closed or closing)
+        return recurse(s, idx + 1, left)
 
-    return recurse(string, 0, "", False, False)
+    return recurse(string, 0, None)
 
 
 import pytest
