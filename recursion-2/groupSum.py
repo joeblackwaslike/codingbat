@@ -1,6 +1,8 @@
 """
 groupSum
 
+https://codingbat.com/prob/p145416
+
 Given an array of ints, is it possible to choose a group of some of the ints,
 such that the group sums to the given target? This is a classic backtracking
 recursion problem. Once you understand the recursive backtracking strategy in
@@ -15,16 +17,10 @@ groupSum(0, [2, 4, 8], 10) → true
 groupSum(0, [2, 4, 8], 14) → true
 groupSum(0, [2, 4, 8], 9) → false
 """
-from typing import List
 
 
-def groupSum(start: int, nums: List[int], target: int) -> bool:
-    if start >= len(nums):
-        return target == 0
-
-    curNum = nums[start]
-    start += 1
-    return groupSum(start, nums, target - curNum) or groupSum(start, nums, target)
+def groupSum(start: int, nums: list[int], target: int) -> bool:
+    pass
 
 
 import pytest

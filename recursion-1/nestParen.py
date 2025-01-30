@@ -1,6 +1,8 @@
 """
 nestParen
 
+https://codingbat.com/prob/p183174
+
 Given a string, return true if it is a nesting of zero or more pairs of parenthesis, like "(())" or "((()))". Suggestion: check the first and last chars, and then recur on what's inside them.
 
 
@@ -8,33 +10,10 @@ nestParen("(())") → true
 nestParen("((()))") → true
 nestParen("(((x))") → false
 """
-from typing import List
 
 
 def nestParen(string: str) -> bool:
-    # Edge case ""
-    if not string:
-        return True
-    elif len(string) % 2 != 0:
-        # A string with uneven length cannot be balanced
-        return False
-
-    openParen = "("
-    closeParen = ")"
-
-    def recurse(s, offset):
-        left = offset
-        right = len(s) - (offset + 1)
-
-        if left > right:
-            # We're done
-            return True
-        elif s[left] == openParen and s[right] == closeParen:
-            return recurse(s, offset + 1)
-        else:
-            return False
-
-    return recurse(string, 0)
+    pass
 
 
 import pytest

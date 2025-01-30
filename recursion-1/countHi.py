@@ -1,6 +1,8 @@
 """
 countHi
 
+https://codingbat.com/prob/p184029
+
 Given a string, compute recursively (no loops) the number of lowercase 'hi' chars
 in the string.
 
@@ -11,17 +13,8 @@ countHi("hi") → 1
 """
 
 
-def countHi(string):
-    windowSize = 2
-    target = "hi"
-    strLength = len(string)
-
-    if strLength < windowSize:
-        return 0
-    elif strLength == windowSize:
-        return 1 if string == target else 0
-    else:
-        return countHi(string[:windowSize]) + countHi(string[1:])
+def countHi(string: str) -> int:
+    pass
 
 
 import pytest

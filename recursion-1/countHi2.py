@@ -1,6 +1,8 @@
 """
 countHi2
 
+https://codingbat.com/prob/p143900
+
 Given a string, compute recursively the number of times lowercase "hi" appears
 in the string, however do not count "hi" that have an 'x' immedately before
 them.
@@ -10,23 +12,10 @@ countHi2("ahixhi") → 1
 countHi2("ahibhi") → 2
 countHi2("xhixhi") → 0
 """
-from typing import List
 
 
 def countHi2(string: str) -> int:
-    searchString = "hi"
-    windowSize = len(searchString)
-
-    def recurse(s, idx):
-        if idx > len(s) - windowSize:
-            return 0
-
-        subString = s[idx : idx + windowSize]
-        found = subString == searchString
-        xPrefixed = idx > 0 and s[idx - 1] == "x"
-        return int(found and not xPrefixed) + recurse(s, idx + 1)
-
-    return recurse(string, 0)
+    pass
 
 
 import pytest

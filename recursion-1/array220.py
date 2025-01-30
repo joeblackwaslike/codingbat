@@ -1,6 +1,8 @@
 """
 array220
 
+https://codingbat.com/prob/p173469
+
 Given an array of ints, compute recursively if the array contains somewhere a
 value followed in the array by that value times 10. We'll use the convention
 of considering only the part of the array that begins at the given index. In
@@ -12,14 +14,10 @@ array220([1, 2, 20], 0) → true
 array220([3, 30], 0) → true
 array220([3], 0) → false
 """
-from typing import List
 
 
-def array220(nums: List[int], index: int) -> bool:
-    if index > len(nums) - 2:
-        return False
-
-    return nums[index] * 10 == nums[index + 1] or array220(nums, index + 1)
+def array220(nums: list[int], index: int) -> bool:
+    pass
 
 
 import pytest

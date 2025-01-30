@@ -1,6 +1,8 @@
 """
 endX
 
+https://codingbat.com/prob/p105722
+
 Given a string, compute recursively a new string where all the lowercase 'x'
 chars have been moved to the end of the string.
 
@@ -9,25 +11,10 @@ endX("xxre") → "rexx"
 endX("xxhixx") → "hixxxx"
 endX("xhixhix") → "hihixxx"
 """
-from typing import List
 
 
 def endX(string: str) -> str:
-    def recurse(s, index, xCount):
-        if index > len(s) - 1:
-            if xCount:
-                return "x" * xCount
-            return ""
-
-        if s[index] == "x":
-            xCount += 1
-            curString = ""
-        else:
-            curString = s[index]
-
-        return curString + recurse(s, index + 1, xCount)
-
-    return recurse(string, 0, 0)
+    pass
 
 
 import pytest

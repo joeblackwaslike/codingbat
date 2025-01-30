@@ -1,6 +1,8 @@
 """
 allStar
 
+https://codingbat.com/prob/p183394
+
 Given a string, compute recursively a new string where all the adjacent chars
 are now separated by a "*".
 
@@ -9,19 +11,10 @@ allStar("hello") → "h*e*l*l*o"
 allStar("abc") → "a*b*c"
 allStar("ab") → "a*b"
 """
-from typing import List
 
 
 def allStar(string: str) -> str:
-    def recurse(s, index):
-        if index > len(s) - 1:
-            return ""
-        if index == len(s) - 1:
-            return s[index]
-
-        return "*".join([s[index], recurse(s, index + 1)])
-
-    return recurse(string, 0)
+    pass
 
 
 import pytest

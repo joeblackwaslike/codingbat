@@ -1,6 +1,8 @@
 """
 splitArray
 
+https://codingbat.com/prob/p185204
+
 Given an array of ints, is it possible to divide the ints into two groups, so
 that the sums of the two groups are the same. Every int must be in one group
 or the other. Write a recursive helper method that takes whatever arguments
@@ -12,27 +14,10 @@ splitArray([2, 2]) → true
 splitArray([2, 3]) → false
 splitArray([5, 2, 3]) → true
 """
-from typing import List
 
 
-def splitArray(nums: List[int]) -> bool:
-    def recurse(idx, groupOne, groupTwo):
-        if idx >= len(nums):
-            return sum(groupOne) == sum(groupTwo)
-
-        curNum = nums[idx]
-
-        groupOne.append(curNum)
-        resultOne = recurse(idx + 1, groupOne[:], groupTwo[:])
-        groupOne.pop()
-
-        groupTwo.append(curNum)
-        resultTwo = recurse(idx + 1, groupOne[:], groupTwo[:])
-        groupTwo.pop()
-
-        return resultOne or resultTwo
-
-    return recurse(0, [], [])
+def splitArray(nums: list[int]) -> bool:
+    pass
 
 
 import pytest

@@ -1,6 +1,8 @@
 """
 strCopies
 
+https://codingbat.com/prob/p118182
+
 Given a string and a non-empty substring sub, compute recursively if at least n
 copies of sub appear in the string somewhere, possibly with overlapping. N will
 be non-negative.
@@ -10,27 +12,10 @@ strCopies("catcowcat", "cat", 2) → true
 strCopies("catcowcat", "cow", 2) → false
 strCopies("catcowcat", "cow", 1) → true
 """
-from typing import List
 
 
 def strCopies(string: str, sub: str, n: int) -> bool:
-    strLen = len(string)
-    subLen = len(sub)
-
-    def recurse(s, idx, count):
-        left = idx
-        right = idx + subLen
-
-        if right > strLen:
-            return count
-
-        if s[left:right] == sub:
-            count += 1
-
-        return recurse(s, idx + 1, count)
-
-    count = recurse(string, 0, 0)
-    return count >= n
+    pass
 
 
 import pytest

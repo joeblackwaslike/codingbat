@@ -1,6 +1,8 @@
 """
 fibonacci
 
+https://codingbat.com/prob/p120015
+
 The fibonacci sequence is a famous bit of mathematics, and it happens to have
 a recursive definition. The first two values in the sequence are 0 and 1
 (essentially 2 base cases). Each subsequent value is the sum of the previous
@@ -16,13 +18,32 @@ fibonacci(2) → 1
 """
 
 
-def fibonacci(n):
-    if n in (0, 1):
-        return n
+def fibonacci(n: int) -> int:
+    pass
 
-    return fibonacci(n - 2) + fibonacci(n - 1)
+
+import pytest
+
+
+@pytest.mark.parametrize(
+    "given, expected",
+    [
+        (0, 0),
+        (1, 1),
+        (2, 1),
+        (3, 2),
+        (4, 3),
+        (5, 5),
+        (6, 8),
+        (7, 13),
+        (8, 21),
+        (9, 34),
+    ],
+)
+def test(given, expected):
+    result = fibonacci(given)
+    assert result == expected
 
 
 if __name__ == "__main__":
-    for val in range(10):
-        print(val, fibonacci(val))
+    pytest.main([__file__])

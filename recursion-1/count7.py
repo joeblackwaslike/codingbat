@@ -1,6 +1,8 @@
 """
 count7
 
+https://codingbat.com/prob/p101409
+
 Given a non-negative int n, return the count of the occurrences of 7 as a
 digit, so for example 717 yields 2. (no loops). Note that mod (%) by 10 yields
 the rightmost digit (126 % 10 is 6), while divide (/) by 10 removes the
@@ -13,17 +15,25 @@ count7(123) → 0
 """
 
 
-def count7(n):
-    def rec(num):
-        if num < 10:
-            return 1 if num == 7 else 0
-        else:
-            rightMostDigit = num % 10
-            return rec(rightMostDigit) + rec(num // 10)
+def count7(n: int) -> int:
+    pass
 
-    return rec(n)
+
+import pytest
+
+
+@pytest.mark.parametrize(
+    "given, expected",
+    [
+        (717, 2),
+        (7, 1),
+        (123, 0),
+    ],
+)
+def test(given, expected):
+    result = count7(given)
+    assert result == expected
 
 
 if __name__ == "__main__":
-    for val in [717, 7, 123]:
-        print(val, count7(val))
+    pytest.main([__file__])

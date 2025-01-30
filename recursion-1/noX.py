@@ -1,6 +1,8 @@
 """
 noX
 
+https://codingbat.com/prob/p118230
+
 Given a string, compute recursively a new string where all the 'x' chars
 have been removed.
 
@@ -11,13 +13,8 @@ noX("xx") → ""
 """
 
 
-def noX(string):
-    if not string:
-        return ""
-    elif len(string) == 1:
-        return string if string != "x" else ""
-
-    return noX(string[0]) + noX(string[1:])
+def noX(string: str) -> str:
+    pass
 
 
 import pytest

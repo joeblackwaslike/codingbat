@@ -1,6 +1,8 @@
 """
 strCount
 
+https://codingbat.com/prob/p186177
+
 Given a string and a non-empty substring sub, compute recursively the number
 of times that sub appears in the string, without the sub strings overlapping.
 
@@ -9,29 +11,10 @@ strCount("catcowcat", "cat") → 2
 strCount("catcowcat", "cow") → 1
 strCount("catcowcat", "dog") → 0
 """
-from typing import List
 
 
-def strCount(string: str, sub: str) -> int:
-    strLen = len(string)
-    subLen = len(sub)
-
-    def recurse(s, idx, count):
-        left = idx
-        right = idx + subLen
-
-        if right > strLen:
-            return count
-
-        if s[left:right] == sub:
-            count += 1
-            idx += subLen
-        else:
-            idx += 1
-
-        return recurse(s, idx, count)
-
-    return recurse(string, 0, 0)
+def strCount(string: str) -> int:
+    pass
 
 
 import pytest

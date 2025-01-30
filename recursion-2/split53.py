@@ -1,6 +1,8 @@
 """
 split53
 
+https://codingbat.com/prob/p168295
+
 Given an array of ints, is it possible to divide the ints into two groups, so
 that the sum of the two groups is the same, with these constraints: all the
 values that are multiple of 5 must be in one group, and all the values that
@@ -12,31 +14,10 @@ split53([1, 1]) → true
 split53([1, 1, 1]) → false
 split53([2, 4, 2]) → true
 """
-from typing import List
 
 
-def split53(nums: List[int]) -> bool:
-    def recurse(idx, groupOne, groupTwo):
-        if idx >= len(nums):
-            return sum(groupOne) == sum(groupTwo)
-
-        curNum = nums[idx]
-
-        if curNum % 5 == 0:
-            groupOne.append(curNum)
-            return recurse(idx + 1, groupOne[:], groupTwo[:])
-        elif curNum % 3 == 0:
-            groupTwo.append(curNum)
-            return recurse(idx + 1, groupOne[:], groupTwo[:])
-        else:
-            groupOne.append(curNum)
-            resultOne = recurse(idx + 1, groupOne[:], groupTwo[:])
-            groupOne.pop()
-
-            groupTwo.append(curNum)
-            return resultOne or recurse(idx + 1, groupOne[:], groupTwo[:])
-
-    return recurse(0, [], [])
+def split53(nums: list[int]) -> bool:
+    pass
 
 
 import pytest

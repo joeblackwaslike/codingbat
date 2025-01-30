@@ -1,6 +1,8 @@
 """
 stringClean
 
+https://codingbat.com/prob/p104029
+
 Given a string, return recursively a "cleaned" string where adjacent chars
 that are the same have been reduced to a single char. So "yyzzza" yields
 "yza".
@@ -10,23 +12,10 @@ stringClean("yyzzza") → "yza"
 stringClean("abbbcdd") → "abcd"
 stringClean("Hello") → "Helo"
 """
-from typing import List
 
 
-def stringClean(string: str) -> int:
-    windowSize = 1
-
-    def recurse(s, idx):
-        if idx > len(s) - windowSize:
-            return ""
-
-        char = s[idx]
-        if idx > 0 and char == s[idx - 1]:
-            char = ""
-
-        return char + recurse(s, idx + 1)
-
-    return recurse(string, 0)
+def stringClean(string: str) -> str:
+    pass
 
 
 import pytest

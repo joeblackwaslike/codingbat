@@ -1,6 +1,8 @@
 """
 groupSumClump
 
+https://codingbat.com/prob/p105136
+
 Given an array of ints, is it possible to choose a group of some of the ints,
 such that the group sums to the given target, with this additional
 constraint: if there are numbers in the array that are adjacent and the
@@ -15,25 +17,10 @@ groupSumClump(0, [2, 4, 8], 10) → true
 groupSumClump(0, [1, 2, 4, 8, 1], 14) → true
 groupSumClump(0, [2, 4, 4, 8], 14) → false
 """
-from typing import List
 
 
-def groupSumClump(start: int, nums: List[int], target: int) -> bool:
-    if start >= len(nums):
-        return target == 0
-
-    groupIdx = start
-    groupSum = 0
-
-    # Sum adjacent like numbers
-    while groupIdx < len(nums) and nums[start] == nums[groupIdx]:
-        groupSum += nums[groupIdx]
-        groupIdx += 1
-
-    # Proceed with or without
-    return groupSumClump(groupIdx, nums, target - groupSum) or groupSumClump(
-        groupIdx, nums, target
-    )
+def groupSumClump(start: int, nums: list[int], target: int) -> bool:
+    pass
 
 
 import pytest

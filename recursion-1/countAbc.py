@@ -1,6 +1,8 @@
 """
 countAbc
 
+https://codingbat.com/prob/p161124
+
 Count recursively the total number of "abc" and "aba" substrings that appear
 in the given string.
 
@@ -9,22 +11,10 @@ countAbc("abc") → 1
 countAbc("abcxxabc") → 2
 countAbc("abaxxaba") → 2
 """
-from typing import List
 
 
 def countAbc(string: str) -> int:
-    searchStrings = dict(abc=3, aba=2)
-
-    def recurse(s, index):
-        if index > len(s) - 3:
-            return 0
-        subString = s[index : index + 3]
-
-        found = subString in searchStrings
-        offset = searchStrings[subString] if found else 1
-        return int(found) + recurse(s, index + offset)
-
-    return recurse(string, 0)
+    pass
 
 
 import pytest

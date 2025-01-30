@@ -1,6 +1,8 @@
 """
 splitOdd10
 
+https://codingbat.com/prob/p171660
+
 Given an array of ints, is it possible to divide the ints into two groups, so
 that the sum of one group is a multiple of 10, and the sum of the other group
 is odd. Every int must be in one group or the other. Write a recursive helper
@@ -12,32 +14,10 @@ splitOdd10([5, 5, 5]) → true
 splitOdd10([5, 5, 6]) → false
 splitOdd10([5, 5, 6, 1]) → true
 """
-from typing import List
 
 
-def splitOdd10(nums: List[int]) -> bool:
-    def recurse(idx, groupOne, groupTwo):
-        if idx >= len(nums):
-            return any(
-                [
-                    sum(groupOne) % 10 == 0 and sum(groupTwo) % 2 != 0,
-                    sum(groupTwo) % 10 == 0 and sum(groupOne) % 2 != 0,
-                ]
-            )
-
-        curNum = nums[idx]
-
-        groupOne.append(curNum)
-        resultOne = recurse(idx + 1, groupOne[:], groupTwo[:])
-        groupOne.pop()
-
-        groupTwo.append(curNum)
-        resultTwo = recurse(idx + 1, groupOne[:], groupTwo[:])
-        groupTwo.pop()
-
-        return resultOne or resultTwo
-
-    return recurse(0, [], [])
+def splitOdd10(nums: list[int]) -> bool:
+    pass
 
 
 import pytest

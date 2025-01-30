@@ -1,6 +1,8 @@
 """
 groupSum5
 
+https://codingbat.com/prob/p138907
+
 Given an array of ints, is it possible to choose a group of some of the ints,
 such that the group sums to the given target with these additional
 constraints:
@@ -14,27 +16,10 @@ groupSum5(0, [2, 5, 10, 4], 19) → true
 groupSum5(0, [2, 5, 10, 4], 17) → true
 groupSum5(0, [2, 5, 10, 4], 12) → false
 """
-from typing import List
 
 
-def groupSum5(start: int, nums: List[int], target: int) -> bool:
-    if start >= len(nums):
-        return target == 0
-
-    curNum = nums[start]
-    skip = 1
-
-    # Must proceed with
-    if curNum % 5 == 0:
-        # If there is a next number, that number is 1, and not the last number
-        if start + 1 < len(nums) and nums[start + 1] == 1 and start + 2 <= len(nums):
-            skip += 1
-        return groupSum5(start + skip, nums, target - curNum)
-    else:
-        # Can proceed either way
-        return groupSum5(start + skip, nums, target - curNum) or groupSum5(
-            start + skip, nums, target
-        )
+def groupSum5(start: int, nums: list[int], target: int) -> bool:
+    pass
 
 
 import pytest

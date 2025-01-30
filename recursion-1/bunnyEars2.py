@@ -1,6 +1,8 @@
 """
 bunnyEars2
 
+https://codingbat.com/prob/p107330
+
 We have bunnies standing in a line, numbered 1, 2, ... The odd bunnies
 (1, 3, ..) have the normal 2 ears. The even bunnies (2, 4, ..) we'll say have
 3 ears, because they each have a raised foot. Recursively return the number
@@ -13,19 +15,25 @@ bunnyEars2(2) → 5
 """
 
 
-def bunnyEars2(bunnies):
-    def countEars(bunnies, idx):
-        if idx > len(bunnies) - 1:
-            return 0
+def bunnyEars2(bunnies: int) -> int:
+    pass
 
-        bunny = bunnies[idx]
-        bunnyEars = 3 if bunny % 2 == 0 else 2
 
-        return bunnyEars + countEars(bunnies, idx + 1)
+import pytest
 
-    return countEars(bunnies, 0)
+
+@pytest.mark.parametrize(
+    "given, expected",
+    [
+        (0, 0),
+        (1, 2),
+        (2, 5),
+    ],
+)
+def test(given, expected):
+    result = bunnyEars2(given)
+    assert result == expected
 
 
 if __name__ == "__main__":
-    for val in [list(range(1, 6))]:
-        print(val, bunnyEars2(val))
+    pytest.main([__file__])
