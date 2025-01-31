@@ -1,9 +1,25 @@
 [project]
 name = "codingbat"
 version = "0.1.0"
-description = "Add your description here"
+description = "Practice Recursion problems from CodingBat"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "pytest>=8.3.4",
 ]
+
+[tool.pytest.ini_options]
+# pytest config: http://doc.pytest.org/en/latest/customize.html
+addopts = "-v -l"
+
+[tool.ruff]
+# Ruff config: https://docs.astral.sh/ruff/settings
+target-version = "py312"
+line-length = 100
+fix = true
+
+[tool.ruff.format]
+preview = true
+quote-style = "double"
+indent-style = "space"
+docstring-code-format = false

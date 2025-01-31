@@ -17,6 +17,21 @@ def factorial(n: int) -> int:
     pass
 
 
+import pytest
+
+
+@pytest.mark.parametrize(
+    "given, expected",
+    [
+        (1, 1),
+        (2, 2),
+        (3, 6),
+    ],
+)
+def test(given, expected):
+    result = factorial(given)
+    assert result == expected
+
+
 if __name__ == "__main__":
-    for val in range(1, 6):
-        print(val, factorial(val))
+    pytest.main([__file__])
