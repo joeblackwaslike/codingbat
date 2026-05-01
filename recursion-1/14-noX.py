@@ -14,7 +14,23 @@ noX("xx") → ""
 
 
 def noX(string: str) -> str:
-    pass
+    """
+    compute recursively a new string where all the 'x' chars have been removed.
+
+    Base case: string == ""
+
+    Input: xaxb  Work:  x  a  x  b
+                        "" a  "" b   => ab
+    """
+    if string == "":
+        return ""
+
+    char = string[0]
+
+    if char == "x":
+        return "" + noX(string[1:])
+    else:
+        return char + noX(string[1:])
 
 
 import pytest

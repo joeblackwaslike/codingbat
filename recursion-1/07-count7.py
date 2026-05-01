@@ -16,7 +16,14 @@ count7(123) → 0
 
 
 def count7(n: int) -> int:
-    pass
+    if n == 0:
+        return 0
+
+    digit = n % 10
+    if digit == 7:
+        return 1 + count7(n // 10)
+    else:
+        return 0 + count7(n // 10)
 
 
 import pytest

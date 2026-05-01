@@ -15,7 +15,11 @@ sumDigits(12) → 3
 
 
 def sumDigits(n: int) -> int:
-    pass
+    if n == 0:
+        return 0
+
+    digit = n % 10
+    return digit + sumDigits(n // 10)
 
 
 import pytest

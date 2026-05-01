@@ -14,7 +14,18 @@ countAbc("abaxxaba") → 2
 
 
 def countAbc(string: str) -> int:
-    pass
+    """
+    Count recursively the total number of "abc" and "aba" substrings that appear in the given string.
+    """
+    if len(string) < 3:
+        return 0
+
+    targets = set(["abc", "aba"])
+
+    if string[:3] in targets:
+        return 1 + countAbc(string[1:])
+    else:
+        return 0 + countAbc(string[1:])
 
 
 import pytest

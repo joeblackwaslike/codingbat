@@ -16,7 +16,9 @@ triangle(2) → 3
 
 
 def triangle(rows: int) -> int:
-    pass
+    if rows == 0:
+        return 0
+    return rows + triangle(rows - 1)
 
 
 import pytest

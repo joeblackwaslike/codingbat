@@ -14,7 +14,16 @@ strDist("cccatcowcatxx", "cat") → 9
 
 
 def strDist(string: str, sub: str) -> int:
-    pass
+    if len(string) < len(sub):
+        return 0
+    elif string.startswith(sub) and string.endswith(sub):
+        return len(string)
+    elif string.startswith(sub) and not string.endswith(sub):
+        return strDist(string[:-1], sub)
+    elif not string.startswith(sub) and string.endswith(sub):
+        return strDist(string[1:], sub)
+    elif not string.startswith(sub) and not string.endswith(sub):
+        return strDist(string[1:-1], sub)
 
 
 import pytest

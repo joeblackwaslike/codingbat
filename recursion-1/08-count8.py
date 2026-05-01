@@ -17,7 +17,21 @@ count8(8818) → 4
 
 
 def count8(n: int) -> int:
-    pass
+    if n == 0:
+        return 0
+
+    digit = n % 10
+    next_n = n // 10
+
+    is_eight = digit == 8
+    next_is_eight = next_n == 8
+
+    if is_eight and next_is_eight:
+        return 2 + count8(next_n)
+    elif is_eight and not next_is_eight:
+        return 1 + count8(next_n)
+    else:
+        return 0 + count8(next_n)
 
 
 import pytest

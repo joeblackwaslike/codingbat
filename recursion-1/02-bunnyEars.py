@@ -15,7 +15,7 @@ bunnyEars(2) → 4
 
 
 def bunnyEars(bunnies: int) -> int:
-    pass
+    return bunnies * 2
 
 
 import pytest

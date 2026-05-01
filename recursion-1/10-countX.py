@@ -14,7 +14,21 @@ countX("hi") → 0
 
 
 def countX(string: str) -> int:
-    pass
+    """
+    compute recursively the number of lowercase 'x' chars in the `string`.
+
+    Input: "xxhixx"  Output: 4
+    """
+
+    if string == "":
+        return 0
+
+    char, rest = string[0], string[1:]
+
+    if char == "x":
+        return 1 + countX(rest)
+    else:
+        return 0 + countX(rest)
 
 
 import pytest

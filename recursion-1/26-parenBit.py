@@ -15,7 +15,23 @@ parenBit("(xy)1") → "(xy)"
 
 
 def parenBit(string: str) -> str:
-    pass
+    """
+    compute recursively a new string made of only the parenthesis and their contents.
+
+    example: "xyz(abc)123" yields "(abc)"
+    """
+
+    first = string[0]
+    last = string[-1]
+
+    if first == "(" and last == ")":
+        return string
+    elif first == "(" and last != ")":
+        return parenBit(string[:-1])
+    elif first != "(" and last == ")":
+        return parenBit(string[1:])
+    elif first != "(" and last != ")":
+        return parenBit(string[1:-1])
 
 
 import pytest

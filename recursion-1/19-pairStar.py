@@ -13,8 +13,49 @@ pairStar("aaaa") → "a*a*a*a"
 """
 
 
-def pairStar(string: str) -> str:
-    pass
+def pairStar(string: str, index: int = 0) -> str:
+    """
+    compute recursively a new string where identical adjacent chars are separated from each other by "*".
+
+    Input: hello        Output: hel*lo
+
+    Level 1:
+        index: 0
+        char: h
+        next_char: e
+        return: h + rec(index + 1)
+    Level 2:
+        index: 1
+        char: e
+        next_char: l
+        return: e + recurse(index + 1)
+    Level 3:
+        index: 2
+        char: l
+        next_char: l
+        return: l* + recurse(index + 1)
+    Level 4:
+        index: 3
+        char: l
+        next_char: o
+        return: l + recurse(index + 1)
+    Level 5:
+        index: 4
+        return: o
+
+    """
+    if index == len(string):
+        return ""
+    elif index == len(string) - 1:
+        return string[index]
+
+    char = string[index]
+    next_char = string[index + 1]
+
+    if char == next_char:
+        return char + "*" + pairStar(string, index + 1)
+    else:
+        return char + pairStar(string, index + 1)
 
 
 import pytest

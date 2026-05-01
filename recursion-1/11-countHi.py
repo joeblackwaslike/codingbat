@@ -14,7 +14,24 @@ countHi("hi") → 1
 
 
 def countHi(string: str) -> int:
-    pass
+    """
+    compute recursively the number of lowercase 'hi' chars in the `string`.
+
+    Input: xxhixx  => xx xh hi ix xx    => Output: 1
+                      0  0  1  0  0
+    Input: xhixhix => xh hi ix xh hi ix => Output: 2
+                      0  1  0  0  1  0
+    Input: hi      => hi                => Output: 1
+                      1
+    """
+    if string == "":
+        return 0
+
+    substring = string[:2]
+    if substring == "hi":
+        return 1 + countHi(string[1:])
+    else:
+        return 0 + countHi(string[1:])
 
 
 import pytest

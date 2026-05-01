@@ -13,7 +13,16 @@ nestParen("(((x))") → false
 
 
 def nestParen(string: str) -> bool:
-    pass
+    if len(string) == 0:
+        return True
+
+    first = string[0]
+    last = string[-1]
+
+    if first == "(" and last == ")":
+        return nestParen(string[1:-1])
+    else:
+        return False
 
 
 import pytest

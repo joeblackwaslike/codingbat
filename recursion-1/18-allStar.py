@@ -13,8 +13,16 @@ allStar("ab") → "a*b"
 """
 
 
-def allStar(string: str) -> str:
-    pass
+def allStar(string: str, index: int = 0) -> str:
+    if index == len(string):
+        return ""
+
+    char = string[index]
+
+    if index == len(string) - 1:
+        return char
+    else:
+        return char + "*" + allStar(string, index + 1)
 
 
 import pytest

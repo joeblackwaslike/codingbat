@@ -17,7 +17,16 @@ array220([3], 0) → false
 
 
 def array220(nums: list[int], index: int) -> bool:
-    pass
+    """
+    compute recursively if the array contains a value followed in the array by that value times 10.
+    """
+    if index == len(nums):
+        return False
+
+    if index + 1 < len(nums) and nums[index + 1] == nums[index] * 10:
+        return True or array220(nums, index + 1)
+    else:
+        return False or array220(nums, index + 1)
 
 
 import pytest

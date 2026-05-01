@@ -20,7 +20,12 @@ groupSum(0, [2, 4, 8], 9) → false
 
 
 def groupSum(start: int, nums: list[int], target: int) -> bool:
-    pass
+    if target == 0:
+        return True
+    elif start == len(nums):
+        return False
+    else:
+        return groupSum(start + 1, nums, target - nums[start]) or groupSum(start + 1, nums, target)
 
 
 import pytest

@@ -16,7 +16,20 @@ countPairs("axbx") → 1
 
 
 def countPairs(string: str) -> int:
-    pass
+    """
+    Recursively compute the number of pairs in the given string.
+
+    A "pair" is two instances of a char separated by a char.
+
+    Input: axa          Output: 1
+    """
+    if len(string) < 3:
+        return 0
+
+    if string[0] == string[2]:
+        return 1 + countPairs(string[1:])
+    else:
+        return 0 + countPairs(string[1:])
 
 
 import pytest

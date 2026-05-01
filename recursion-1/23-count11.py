@@ -14,7 +14,13 @@ count11("111") → 1
 
 
 def count11(string: str) -> int:
-    pass
+    if len(string) < 2:
+        return 0
+
+    if string[:2] == "11":
+        return 1 + count11(string[2:])
+    else:
+        return 0 + count11(string[1:])
 
 
 import pytest

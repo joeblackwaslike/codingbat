@@ -13,8 +13,16 @@ strCount("catcowcat", "dog") → 0
 """
 
 
-def strCount(string: str) -> int:
-    pass
+def strCount(string: str, sub: str) -> int:
+    # size = len(sub)
+
+    if len(string) < len(sub):
+        return 0
+
+    if string.startswith(sub):
+        return 1 + strCount(string[len(sub) :], sub)
+    else:
+        return 0 + strCount(string[1:], sub)
 
 
 import pytest

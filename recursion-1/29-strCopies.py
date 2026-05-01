@@ -15,7 +15,15 @@ strCopies("catcowcat", "cow", 1) → true
 
 
 def strCopies(string: str, sub: str, n: int) -> bool:
-    pass
+    if len(string) < len(sub) and n == 0:
+        return True
+    elif len(string) < len(sub) and n != 0:
+        return False
+
+    if string.startswith(sub):
+        return strCopies(string[1:], sub, n - 1)
+    else:
+        return strCopies(string[1:], sub, n)
 
 
 import pytest

@@ -16,7 +16,15 @@ bunnyEars2(2) → 5
 
 
 def bunnyEars2(bunnies: int) -> int:
-    pass
+    if bunnies == 0:
+        return 0
+
+    is_even = bunnies % 2 == 0
+
+    if is_even:
+        return 3 + bunnyEars2(bunnies - 1)
+    else:
+        return 2 + bunnyEars2(bunnies - 1)
 
 
 import pytest

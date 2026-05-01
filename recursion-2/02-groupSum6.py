@@ -16,7 +16,17 @@ groupSum6(0, [5, 6, 2], 7) → false
 
 
 def groupSum6(start: int, nums: list[int], target: int) -> bool:
-    pass
+    if start == len(nums):
+        if target == 0:
+            return True
+        return False
+    else:
+        if nums[start] == 6:
+            return groupSum6(start + 1, nums, target - nums[start])
+        else:
+            return groupSum6(start + 1, nums, target - nums[start]) or groupSum6(
+                start + 1, nums, target
+            )
 
 
 import pytest

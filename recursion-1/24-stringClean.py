@@ -15,7 +15,46 @@ stringClean("Hello") → "Helo"
 
 
 def stringClean(string: str) -> str:
-    pass
+    """
+    return recursively a "cleaned" string where adjacent chars that are the same have been reduced to a single char.
+
+    Input: yyzzza     Output: yza
+
+    Level 1:
+        index: 0
+        first_char: y
+        next_char: y
+        return: "" + stringClean(string, index + 1)
+    Level 2:
+        index: 1
+        first_char: y
+        next_char:
+        return:
+    Level 3:
+        index:
+        first_char:
+        next_char:
+        return:
+    Level 4:
+        index:
+        first_char:
+        next_char:
+        return:
+    Level 5:
+        index:
+        first_char:
+        next_char:
+        return:
+    """
+
+    # if only one char left just return it
+    if len(string) == 1:
+        return string
+
+    if string[1] == string[0]:
+        return "" + stringClean(string[1:])
+    else:
+        return string[0] + stringClean(string[1:])
 
 
 import pytest

@@ -15,8 +15,37 @@ array6([6], 0) → true
 """
 
 
-def array6(nums: list[int], index: int) -> bool:
-    pass
+def array6(nums: list[int]) -> bool:
+    """
+    compute recursively if `nums` array contains a 6
+
+    Input:
+        nums: [1, 6, 4]  Work:
+                            1         6
+                            False or  True ..
+                            index: 0  Index: 1
+
+    Global:
+        nums: [1, 6, 4]
+
+    Level 1:
+        index: 0
+        value: 1
+        return: False or rec([1, 6, 4], 1)
+    Level 2:
+        index: 1
+        value: 6
+        return: True // or rec([1, 6, 4], 2)
+
+    """
+
+    if len(nums) == 0:
+        return False
+
+    if nums[0] == 6:
+        return True or array6(nums[1:])
+    else:
+        return False or array6(nums[1:])
 
 
 import pytest
@@ -25,18 +54,18 @@ import pytest
 @pytest.mark.parametrize(
     "given, expected",
     [
-        (([1, 6, 4], 0), True),
-        (([1, 4], 0), False),
-        (([6], 0), True),
-        (([], 0), False),
-        (([6, 2, 2], 0), True),
-        (([2, 5], 0), False),
-        (([1, 9, 4, 6, 6], 0), True),
-        (([2, 5, 6], 0), True),
+        ([1, 6, 4], True),
+        ([1, 4], False),
+        ([6], True),
+        ([], False),
+        ([6, 2, 2], True),
+        ([2, 5], False),
+        ([1, 9, 4, 6, 6], True),
+        ([2, 5, 6], True),
     ],
 )
 def test(given, expected):
-    result = array6(*given)
+    result = array6(given)
     assert result == expected
 
 

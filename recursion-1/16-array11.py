@@ -17,7 +17,25 @@ array11([1, 2, 3, 4], 0) → 0
 
 
 def array11(nums: list[int], index: int) -> int:
-    pass
+    """
+    compute recursively the number of times that the value 11 appears in the `nums` array.
+
+    Input: [1, 2, 11], index 0
+           0 + 0 + 1
+
+    Level 1:
+        nums
+    """
+
+    if index == len(nums):
+        return 0
+
+    sub_array = nums[index:]
+
+    if sub_array[0] == 11:
+        return 1 + array11(nums, index + 1)
+    else:
+        return 0 + array11(nums, index + 1)
 
 
 import pytest

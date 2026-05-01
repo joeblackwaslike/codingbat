@@ -14,7 +14,36 @@ changePi("pip") → "3.14p"
 
 
 def changePi(string: str) -> str:
-    pass
+    """
+    compute recursively a new string where all appearances of "pi" have been replaced by "3.14".
+
+    Input: xpix  Work: xp   pi   ix    => Output x3.14x
+                       xp   3.14 ix
+
+    Level 1:
+        string: xpix
+        substring: xp
+        return: x + rec(pix)
+    Level 2:
+        string: pix
+        substring: pi
+        return: 3.14 + rec(x)
+    Level 3:
+        string: x
+        substring: x
+        return: x
+    """
+    if string == "":
+        return ""
+    if len(string) < 2:
+        return string
+
+    substring = string[:2]
+
+    if substring == "pi":
+        return "3.14" + changePi(string[2:])
+    else:
+        return string[:1] + changePi(string[1:])
 
 
 import pytest
